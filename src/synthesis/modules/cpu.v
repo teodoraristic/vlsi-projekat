@@ -171,7 +171,7 @@ module cpu #(
     assign we = we_q;
     assign data = data_q;
     assign out = out_q;
-    assign status = status_d;
+    assign status = status_q;
 
     // IR
     wire [15:0] ir16 = ir_out[15:0];
@@ -621,6 +621,7 @@ module cpu #(
             alu_oc_q <= ALU_ADD; 
             alu_a_q <= 8'd0; 
             alu_b_q <= 8'd0;
+            status_q <= 1'b0;
         end else begin
             state_q <= state_d;
 
@@ -635,7 +636,9 @@ module cpu #(
             x_ptr_q <= x_ptr_d; y_ptr_q <= y_ptr_d; z_ptr_q <= z_ptr_d;
 
             alu_oc_q <= alu_oc_d; alu_a_q <= alu_a_d; alu_b_q <= alu_b_d;
+            status_q <= status_d;
         end
     end
 
 endmodule
+
