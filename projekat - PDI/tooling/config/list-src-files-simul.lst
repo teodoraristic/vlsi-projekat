@@ -1,0 +1,3 @@
+src/simulation/modules/fa.v
+src/simulation/modules/cla_4bit.v
+src/simulation/top_cla_4bit.v
