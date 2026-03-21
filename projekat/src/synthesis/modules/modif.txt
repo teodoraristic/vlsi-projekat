@@ -1,0 +1,23 @@
+cpu_mod1_mov_type2.v
+MOV sa konstantom. Format: 0000 XXXX ???? 1000 | C. Zo mora biti tačno 1000. mem[X] = C. Dvoreč na.
+
+cpu_mod2_mov_type3.v
+MOV kopira niz, N u drugoj reči. Format: 0000 XXXX YYYY 1111 | N. Zo mora biti tačno 1111. Kopira N elemenata od Y do X. Dvoreč na.
+
+cpu_mod3_mov_type4.v
+MOV kopira niz, N u memoriji. Format: 0000 XXXX YYYY 0NNN. Zo[3]=0 i Zo[2:0]>0. N se čita iz mem[Zo[2:0]]. Jednoreč na.
+
+cpu_mod4_alu_y_const.v
+ADD/SUB/MUL gde je Y konstanta. Format: 1op XXXX 0000 ZZZZ | C. Yo=0000 označava konstantu. mem[X] = C op mem[Z]. Opcode-ovi: ADD=1001, SUB=1010, MUL=1011. Dvoreč na.
+
+cpu_mod5_alu_z_const.v
+ADD/SUB/MUL gde je Z konstanta. Format: 1op XXXX YYYY 0000 | C. Zo=0000 označava konstantu. mem[X] = mem[Y] op C. Isti opcode-ovi kao mod4. Dvoreč na.
+
+cpu_mod6_beq_bgt_addr.v
+BEQ i BGT, adresa skoka u drugoj reči. Format: 0101/0110 XXXX YYYY 1000 | adresa. Zo mora biti tačno 1000. Ovo je tvoja varijanta — zadatak koji si ti pokazala gore (Zo=1000, adresa u drugoj reči). Dvoreč na.
+
+cpu_mod7_beq_bgt_fda.v
+BEQ i BGT, adresa skoka u FDA. Format: 0101/0110 XXXX YYYY 0AAA. Zo[3]=0 i Zo[2:0]>0. Adresa skoka se čita iz mem[Zo[2:0]]. Jednoreč na.
+
+cpu_mod8_jsr_rts.v
+JSR + RTS. JSR format: 1101 ???? ???? ???? | adresa. Push PC na stek, skok na adresu. RTS format: 1110 ???? ???? ????. Pop adrese sa steka u PC. JSR dvoreč na, RTS jednoreč na.
